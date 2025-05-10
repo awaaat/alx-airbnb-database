@@ -139,14 +139,3 @@ Stores the message body (normalized for 3NF).
 - `message_id` references `message(message_id)`
 
 ---
-
-## Setup Instructions
-
-### Install PostgreSQL
-- Ensure PostgreSQL is installed and running on your system.
-- Verify the `uuid-ossp` extension is available.
-
-### Create Database
-
-```bash
-createdb airbnb
