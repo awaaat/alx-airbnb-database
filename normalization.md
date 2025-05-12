@@ -1,0 +1,1 @@
+# This contains teh scripts for normalizing the database. Most tables are however, in their 3NF
