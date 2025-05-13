@@ -36,15 +36,7 @@ CREATE INDEX IF NOT EXISTS idx_booking_property_id ON booking(property_id);
 CREATE INDEX IF NOT EXISTS idx_property_property_id ON property(property_id);
 
 
-### 📊 Step 3: Measure Query Performance
 
-To measure the performance before and after adding the indexes, we will use `EXPLAIN ANALYZE` to see how the query is executed and how long it takes.
-
-**Sample Query Tested:**
-
-The following query is tested for performance before and after the indexes are created:
-
-```sql
 EXPLAIN ANALYZE
 SELECT u.user_id, COUNT(b.booking_id) AS total_bookings
 FROM booking AS b
