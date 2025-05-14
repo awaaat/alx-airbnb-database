@@ -13,13 +13,13 @@ CREATE INDEX IF NOT EXISTS idx_payment_booking_id ON payment(booking_id);
 -- =============================
 
 EXPLAIN ANALYZE
-WITH booking_cte AS (
-    SELECT * 
-    JOIN "user" AS u ON TRUE
-    JOIN property AS p ON TRUE
-    JOIN payment AS py ON TRUE
-)
-SELECT * 
-JOIN "user" AS u ON booking.user_id = u.user_id
-JOIN property AS p ON booking.property_id = p.property_id
-JOIN payment AS py ON py.booking_id = booking.booking_id;
+-- Initial query retrieving bookings with user, property, and payment details
+SELECT *
+FROM booking AS b
+JOIN "user" AS u ON b.user_id = u.user_id
+JOIN property AS p ON b.property_id = p.property_id
+JOIN payment AS py ON py.booking_id = b.booking_id
+WHERE u.user_id IS NOT NULL
+  AND p.property_id IS NOT NULL
+  AND py.booking_id IS NOT NULL;
+
